@@ -6,6 +6,7 @@ import java.awt.Shape;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.event.MouseWheelEvent;
 import java.awt.geom.AffineTransform;
 
@@ -34,6 +35,7 @@ public final class InteractivePlot extends JComponent {
 		if (mouseHandler != null) {
 			new MouseHandler(this);
 		}
+		mouseHandler.setParent(this);
 		new ComponentHandler(this);
 		
 		axisStyle = settings.axisStyle;
@@ -93,9 +95,20 @@ public final class InteractivePlot extends JComponent {
 			component.addMouseWheelListener(this);
 		}
 		
+		public void mousePressed(MouseEvent e) {
+			mouseHandler.mousePressed(plotScale, getMouseLocation(e.getX(), e.getY()), e.getButton());
+		}
+		
+		public void mouseReleased(MouseEvent e) {
+			mouseHandler.mouseReleased(plotScale, getMouseLocation(e.getX(), e.getY()), e.getButton());
+		}
+		
+		public void mouseDragged(MouseEvent e) {
+			mouseHandler.mouseDragged(plotScale, getMouseLocation(e.getX(), e.getY()));
+		}
+		
 		public void mouseWheelMoved(MouseWheelEvent e) {
 			mouseHandler.mouseWheelMoved(plotScale, getMouseLocation(e.getX(), e.getY()), e.getPreciseWheelRotation());
-			repaint();
 		}
 	}
 	

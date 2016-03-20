@@ -30,5 +30,6 @@ public class BasicPlotMouseHandler extends PlotMouseHandler {
 		} else if (xBias > yBias) {
 			plotScale.zoomY(location.getLinearY(), Math.pow(wheelScale, scrollAmount));
 		}
+		repaint();
 	}
 }
