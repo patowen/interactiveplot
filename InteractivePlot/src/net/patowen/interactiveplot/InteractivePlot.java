@@ -96,19 +96,19 @@ public final class InteractivePlot extends JComponent {
 		}
 		
 		public void mousePressed(MouseEvent e) {
-			mouseHandler.mousePressed(plotScale, getMouseLocation(e.getX(), e.getY()), e.getButton());
+			mouseHandler.mousePressed(plotScale, getMouseLocation(e.getX(), e.getY()), e);
 		}
 		
 		public void mouseReleased(MouseEvent e) {
-			mouseHandler.mouseReleased(plotScale, getMouseLocation(e.getX(), e.getY()), e.getButton());
+			mouseHandler.mouseReleased(plotScale, getMouseLocation(e.getX(), e.getY()), e);
 		}
 		
 		public void mouseDragged(MouseEvent e) {
-			mouseHandler.mouseDragged(plotScale, getMouseLocation(e.getX(), e.getY()));
+			mouseHandler.mouseDragged(plotScale, getMouseLocation(e.getX(), e.getY()), e);
 		}
 		
 		public void mouseWheelMoved(MouseWheelEvent e) {
-			mouseHandler.mouseWheelMoved(plotScale, getMouseLocation(e.getX(), e.getY()), e.getPreciseWheelRotation());
+			mouseHandler.mouseWheelMoved(plotScale, getMouseLocation(e.getX(), e.getY()), e);
 		}
 	}
 	

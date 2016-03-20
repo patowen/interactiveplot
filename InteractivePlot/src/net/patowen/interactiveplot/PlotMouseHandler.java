@@ -1,6 +1,8 @@
 package net.patowen.interactiveplot;
 
 import java.awt.Component;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseWheelEvent;
 
 /**
  * This provides a convenient way to define how the mouse can interact with the plot.
@@ -26,7 +28,7 @@ public class PlotMouseHandler {
 	 * @param location the location of the mouse
 	 * @param button which button is pressed
 	 */
-	public void mousePressed(PlotScale plotScale, PlotMouseLocation location, int button) {}
+	public void mousePressed(PlotScale plotScale, PlotMouseLocation location, MouseEvent e) {}
 	
 	/**
 	 * This method is called when the user presses a mouse button.
@@ -34,14 +36,14 @@ public class PlotMouseHandler {
 	 * @param location the location of the mouse
 	 * @param button which button is released
 	 */
-	public void mouseReleased(PlotScale plotScale, PlotMouseLocation location, int button) {}
+	public void mouseReleased(PlotScale plotScale, PlotMouseLocation location, MouseEvent e) {}
 	
 	/**
 	 * This method is called when the user moves the mouse with a button held down.
 	 * @param plotScale the scale that defines the current plot. This can be modified as needed.
 	 * @param location the location of the mouse
 	 */
-	public void mouseDragged(PlotScale plotScale, PlotMouseLocation location) {}
+	public void mouseDragged(PlotScale plotScale, PlotMouseLocation location, MouseEvent e) {}
 	
 	/**
 	 * This method is called when the user scrolls the mouse wheel.
@@ -49,5 +51,5 @@ public class PlotMouseHandler {
 	 * @param location the location of the mouse
 	 * @param scrollAmount how much the user scrolled and by which direction
 	 */
-	public void mouseWheelMoved(PlotScale plotScale, PlotMouseLocation location, double scrollAmount) {}
+	public void mouseWheelMoved(PlotScale plotScale, PlotMouseLocation location, MouseWheelEvent e) {}
 }
