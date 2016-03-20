@@ -36,6 +36,9 @@ public class LogAxisScale extends AxisScale
 	}
 	
 	private void fill(AxisLabelList labels, Decimal min, Decimal max, double linearMin, double linearMax, double minLinearInterval) {
+		if (min.compare(Math.pow(10, linearMax)) > 0) return;
+		if (max.compare(Math.pow(10, linearMin)) < 0) return;
+		
 		Optional<Decimal> middle = Decimal.getMiddleValue(min, max, minLinearInterval, x -> getLinear(x));
 		if (middle.isPresent()) {
 			double linearMiddle = getLinear(middle.get().getDoubleValue());
