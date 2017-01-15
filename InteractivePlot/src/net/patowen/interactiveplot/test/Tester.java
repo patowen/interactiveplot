@@ -18,8 +18,7 @@ public class Tester {
 //		settings.setPlotConstraints(constraints);
 		
 		PlotDataFunction function = new PlotDataFunction();
-		function.addFunction(x -> x*x+1);
-		function.switchFunction();
+		function.setFunction(x -> x*x+1);
 		
 		settings.setPlotData(function);
 		settings.setYAxisScale(new LogAxisScale());
