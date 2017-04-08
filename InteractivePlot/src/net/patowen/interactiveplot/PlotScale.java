@@ -96,6 +96,20 @@ public final class PlotScale {
 		applyConstraints();
 	}
 	
+	public void translateX(double x) {
+		chosenBounds.setXLeft(chosenBounds.getXLeft() + x);
+		chosenBounds.setXRight(chosenBounds.getXRight() + x);
+		
+		applyConstraints();
+	}
+	
+	public void translateY(double y) {
+		chosenBounds.setYTop(chosenBounds.getYTop() + y);
+		chosenBounds.setYBottom(chosenBounds.getYBottom() + y);
+		
+		applyConstraints();
+	}
+	
 	/**
 	 * Sets the extreme horizontal bounds of the graph based on the given bounds and the size of the graph.
 	 */

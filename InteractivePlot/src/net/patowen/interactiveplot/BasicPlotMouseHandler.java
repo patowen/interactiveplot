@@ -1,5 +1,6 @@
 package net.patowen.interactiveplot;
 
+import java.awt.event.MouseEvent;
 import java.awt.event.MouseWheelEvent;
 
 /**
@@ -9,6 +10,9 @@ import java.awt.event.MouseWheelEvent;
  */
 public class BasicPlotMouseHandler extends PlotMouseHandler {
 	private double wheelScale;
+	private double anchor;
+	private boolean settingX;
+	private boolean settingY;
 	
 	/**
 	 * Creates a {@code BasicPlotMouseHandler} with the default settings.
@@ -22,6 +26,36 @@ public class BasicPlotMouseHandler extends PlotMouseHandler {
 	 */
 	public void setWheelScale(double wheelScale) {
 		this.wheelScale = wheelScale;
+	}
+	
+	public void mousePressed(PlotScale plotScale, PlotMouseLocation location, MouseEvent e) {
+		int xBias = Math.max(-location.getRelativeX(false), location.getRelativeX(true));
+		int yBias = Math.max(-location.getRelativeY(false), location.getRelativeY(true));
+		if (!location.inPlot()) {
+			if (yBias > xBias) {
+				settingX = true;
+				settingY = false;
+				anchor = location.getLinearX();
+			} else if (xBias > yBias) {
+				settingX = false;
+				settingY = true;
+				anchor = location.getLinearY();
+			}
+		}
+	}
+	
+	public void mouseDragged(PlotScale plotScale, PlotMouseLocation location, MouseEvent e) {
+		if (settingX) {
+			plotScale.translateX(anchor - location.getLinearX());
+		} else if (settingY) {
+			plotScale.translateY(anchor - location.getLinearY());
+		}
+		repaint();
+	}
+	
+	public void mouseReleased(PlotScale plotScale, PlotMouseLocation location, MouseEvent e) {
+		settingX = false;
+		settingY = false;
 	}
 	
 	public void mouseWheelMoved(PlotScale plotScale, PlotMouseLocation location, MouseWheelEvent e) {
