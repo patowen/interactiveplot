@@ -16,6 +16,7 @@ import javax.swing.JComponent;
  * This class is a swing component that can be used to graph data in a flexible manner.
  * @author Patrick Owen
  */
+@SuppressWarnings("serial")
 public final class InteractivePlot extends JComponent {
 	private PlotStyle axisStyle;
 	
@@ -123,6 +124,7 @@ public final class InteractivePlot extends JComponent {
 			plotScale.setSize(
 					Math.max(2, width-axisStyle.getHorizontalMargin()),
 					Math.max(2, height-axisStyle.getVerticalMargin()));
+			repaint();
 		}
 	}
 	
