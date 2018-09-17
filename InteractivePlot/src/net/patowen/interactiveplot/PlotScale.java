@@ -340,10 +340,10 @@ public final class PlotScale {
 	}
 	
 	/**
-	 * Returns a suitable {@link AxisLabelList} object for the x-axis.
+	 * Returns a suitable {@link TickLabelList} object for the x-axis.
 	 * @param spacing the minimum spacing of the labels in pixels
 	 */
-	public AxisLabelList getXLabels(int spacing) {
+	public TickLabelList getXLabels(int spacing) {
 		boolean leftIsMin = getRealXLeft() < getRealXRight();
 		return xAxisScale.getLabels(
 				leftIsMin ? getRealXLeft() : getRealXRight(),
@@ -352,10 +352,10 @@ public final class PlotScale {
 	}
 	
 	/**
-	 * Returns a suitable {@link AxisLabelList} object for the y-axis.
+	 * Returns a suitable {@link TickLabelList} object for the y-axis.
 	 * @param spacing the minimum spacing of the labels in pixels
 	 */
-	public AxisLabelList getYLabels(int spacing) {
+	public TickLabelList getYLabels(int spacing) {
 		boolean topIsMin = getRealYTop() < getRealYBottom();
 		return yAxisScale.getLabels(
 				topIsMin ? getRealYTop() : getRealYBottom(),

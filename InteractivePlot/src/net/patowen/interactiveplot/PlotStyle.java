@@ -17,12 +17,12 @@ public abstract class PlotStyle {
 	/**
 	 * The labels that should be displayed on the x-axis of the graph.
 	 */
-	protected AxisLabelList xLabels;
+	protected TickLabelList xLabels;
 	
 	/**
 	 * The labels that should be displayed on the y-axis of the graph.
 	 */
-	protected AxisLabelList yLabels;
+	protected TickLabelList yLabels;
 	
 	void preparePainting(PlotScale plotScale) {
 		this.plotScale = plotScale;

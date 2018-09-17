@@ -16,14 +16,14 @@ public class LinearAxisScale extends AxisScale
 		return real;
 	}
 	
-	public AxisLabelList getLabels(double linearMin, double linearMax, double minLinearInterval) {
-		AxisLabelList labels = new AxisLabelList();
+	public TickLabelList getLabels(double linearMin, double linearMax, double minLinearInterval) {
+		TickLabelList labels = new TickLabelList();
 		
 		Decimal spacing = Decimal.nextIncrement(minLinearInterval);
 		for (Decimal tick = Decimal.getLowerBound(linearMin, spacing);
 				tick.compare(linearMax) <= 0; tick = tick.plus(spacing)) {
 			if (tick.compare(linearMin) >= 0) {
-				labels.addLabel(new AxisLabel(tick.getDoubleValue(), tick.toString(5)));
+				labels.addLabel(new TickLabel(tick.getDoubleValue(), tick.toString(5)));
 			}
 		}
 		

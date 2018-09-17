@@ -63,28 +63,28 @@ public class BasicPlotStyle extends PlotStyle {
 	}
 	
 	private void drawGrid(Graphics2D g) {
-		for (AxisLabel label : xLabels.getLabels()) {
+		for (TickLabel label : xLabels.getLabels()) {
 			int pixelX = plotScale.getPixelX(label.getLocation());
 			g.drawLine(pixelX, plotScale.getPixelYTop(), pixelX, plotScale.getPixelYBottom());
 		}
 		
-		for (AxisLabel label : yLabels.getLabels()) {
+		for (TickLabel label : yLabels.getLabels()) {
 			int pixelY = plotScale.getPixelY(label.getLocation());
 			g.drawLine(plotScale.getPixelXLeft(), pixelY, plotScale.getPixelXRight(), pixelY);
 		}
 	}
 	
 	private void drawAxes(Graphics2D g) {
-		for (AxisLabel label : xLabels.getLabels()) {
+		for (TickLabel label : xLabels.getLabels()) {
 			drawXTick(g, label);
 		}
 		
-		for (AxisLabel label : yLabels.getLabels()) {
+		for (TickLabel label : yLabels.getLabels()) {
 			drawYTick(g, label);
 		}
 	}
 	
-	private void drawXTick(Graphics2D g, AxisLabel label) {
+	private void drawXTick(Graphics2D g, TickLabel label) {
 		int i = plotScale.getPixelX(label.getLocation());
 		
 		g.setColor(mainColor);
@@ -96,7 +96,7 @@ public class BasicPlotStyle extends PlotStyle {
 		}
 	}
 	
-	private void drawYTick(Graphics2D g, AxisLabel label) {
+	private void drawYTick(Graphics2D g, TickLabel label) {
 		int j = plotScale.getPixelY(label.getLocation());
 		
 		g.setColor(mainColor);

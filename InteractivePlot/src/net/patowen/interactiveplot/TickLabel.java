@@ -5,7 +5,7 @@ package net.patowen.interactiveplot;
  * coordinates.
  * @author Patrick Owen
  */
-public class AxisLabel {
+public class TickLabel {
 	private double location;
 	private String text;
 	
@@ -15,7 +15,7 @@ public class AxisLabel {
 	 * @param location the x- or y-coordinate of the label
 	 * @param text the text that the label displays
 	 */
-	public AxisLabel(double location, String text) {
+	public TickLabel(double location, String text) {
 		this.location = location;
 		this.text = text;
 	}

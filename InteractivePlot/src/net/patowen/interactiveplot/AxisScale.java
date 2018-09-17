@@ -21,10 +21,10 @@ public abstract class AxisScale {
 	public abstract double getLinear(double real);
 	
 	/**
-	 * Creates and returns a suitable {@link AxisLabelList} for the given bounds and interval.
+	 * Creates and returns a suitable {@link TickLabelList} for the given bounds and interval.
 	 * @param linearMin the minimum coordinate for a label in linear coordinates
 	 * @param linearMax the maximum coordinate for a label in linear coordinates
 	 * @param minLinearInterval the minimum interval between two labels in linear coordinates
 	 */
-	public abstract AxisLabelList getLabels(double linearMin, double linearMax, double minLinearInterval);
+	public abstract TickLabelList getLabels(double linearMin, double linearMax, double minLinearInterval);
 }

@@ -7,13 +7,13 @@ import java.util.List;
  * Represents all the axis labels for a given axis, either the x- or y-axis.
  * @author Patrick Owen
  */
-public class AxisLabelList {
-	private List<AxisLabel> labels;
+public class TickLabelList {
+	private List<TickLabel> labels;
 	
 	/**
 	 * Creates an empty {@code AxisLabelList}.
 	 */
-	public AxisLabelList() {
+	public TickLabelList() {
 		labels = new ArrayList<>();
 	}
 	
@@ -21,7 +21,7 @@ public class AxisLabelList {
 	 * Returns a {@link List} containing all the labels on the corresponding axis in no guaranteed
 	 * order.
 	 */
-	public List<AxisLabel> getLabels() {
+	public List<TickLabel> getLabels() {
 		return labels;
 	}
 	
@@ -29,7 +29,7 @@ public class AxisLabelList {
 	 * Adds a label to the corresponding axis.
 	 * @param label the text and location of the label to add
 	 */
-	public void addLabel(AxisLabel label) {
+	public void addLabel(TickLabel label) {
 		labels.add(label);
 	}
 }
