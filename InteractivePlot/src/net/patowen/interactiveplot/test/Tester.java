@@ -1,7 +1,10 @@
 package net.patowen.interactiveplot.test;
 
+import java.awt.BorderLayout;
+
 import javax.swing.JFrame;
 
+import net.patowen.interactiveplot.AxisLabel;
 import net.patowen.interactiveplot.InteractivePlot;
 import net.patowen.interactiveplot.LogAxisScale;
 import net.patowen.interactiveplot.PlotDataFunction;
@@ -23,7 +26,9 @@ public class Tester {
 		settings.setPlotData(function);
 		settings.setYAxisScale(new LogAxisScale());
 		
-		frame.add(new InteractivePlot(settings));
+		frame.setLayout(new BorderLayout());
+		frame.add(new InteractivePlot(settings), BorderLayout.CENTER);
+		frame.add(new AxisLabel("hello", AxisLabel.Orientation.VERTICAL, null));
 		
 		frame.pack();
 		frame.setLocationRelativeTo(null);
