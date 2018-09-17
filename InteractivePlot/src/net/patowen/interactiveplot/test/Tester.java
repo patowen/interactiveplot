@@ -28,7 +28,8 @@ public class Tester {
 		
 		frame.setLayout(new BorderLayout());
 		frame.add(new InteractivePlot(settings), BorderLayout.CENTER);
-		frame.add(new AxisLabel("hello", AxisLabel.Orientation.VERTICAL, null));
+		frame.add(new AxisLabel("Original Value", AxisLabel.Orientation.HORIZONTAL, null), BorderLayout.SOUTH);
+		frame.add(new AxisLabel("Squared plus one", AxisLabel.Orientation.VERTICAL, null), BorderLayout.WEST);
 		
 		frame.pack();
 		frame.setLocationRelativeTo(null);

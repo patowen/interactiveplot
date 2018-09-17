@@ -71,7 +71,7 @@ public final class InteractivePlot extends JComponent {
 		axisStyle.paintBackground(g2);
 		
 		Shape savedClip = g2.getClip();
-		g2.setClip(0, 0, plotScale.getWidth(), plotScale.getHeight());
+		g2.clipRect(0, 0, plotScale.getWidth(), plotScale.getHeight());
 		plotData.drawData(g2, plotScale);
 		g2.setClip(savedClip);
 		
