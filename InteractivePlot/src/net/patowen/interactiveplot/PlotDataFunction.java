@@ -1,6 +1,7 @@
 package net.patowen.interactiveplot;
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.geom.Line2D;
 import java.util.function.Function;
 
 public class PlotDataFunction extends PlotData {
@@ -18,13 +19,19 @@ public class PlotDataFunction extends PlotData {
 	}
 	
 	public void drawData(Graphics2D g, PlotScale plotScale) {
+		double[] screenY = new double[plotScale.getWidth()];
+		int off = plotScale.getPixelXLeft();
+		
 		synchronized (lock) {
-			if (fun != null) {
-				g.setColor(Color.BLUE);
-				for (int i = plotScale.getPixelXLeft(); i <= plotScale.getPixelXRight(); i++) {
-					int j = plotScale.getPixelY(fun.apply(plotScale.getRealX(i+0.5)));
-					g.drawLine((int)i, j, (int)i, plotScale.getPixelYBottom());
-				}
+			for (int i = 0; i < screenY.length; i++) {
+				screenY[i] = plotScale.getScreenY(fun.apply(plotScale.getRealX(i+off+0.5)));
+			}
+		}
+		
+		if (fun != null) {
+			g.setColor(Color.BLACK);
+			for (int i = 0; i < screenY.length - 1; i++) {
+				g.draw(new Line2D.Double(i+off, screenY[i], i+off+1, screenY[i+1]));
 			}
 		}
 	}

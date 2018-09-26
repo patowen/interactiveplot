@@ -5,6 +5,8 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
 import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 
@@ -32,7 +34,8 @@ public class AxisLabel extends JComponent {
 		int height = (int)bounds.getHeight();
 
 		BufferedImage tempImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
-		Graphics g = tempImage.getGraphics();
+		Graphics2D g = (Graphics2D)tempImage.getGraphics();
+		g.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_GASP);
 		g.setFont(font);
 		g.setColor(Color.BLACK);
 		g.drawString(text, -x, -y);
@@ -61,15 +64,5 @@ public class AxisLabel extends JComponent {
 		int xPos = (getWidth() - textImage.getWidth()) / 2;
 		int yPos = (getHeight() - textImage.getHeight()) / 2;
 		g.drawImage(textImage, xPos, yPos, null);
-		
-		/*Font font = new Font("Sans", Font.PLAIN, 32);
-		System.out.println(font.getName());
-		
-		g.setFont(font);
-		g.drawString("hello", 50, 50);
-		
-		
-		FontMetrics fontMetrics = g.getFontMetrics(font);
-		System.out.println(fontMetrics.getHeight());*/
 	}
 }
