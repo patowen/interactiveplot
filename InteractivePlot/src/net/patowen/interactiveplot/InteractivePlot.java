@@ -97,6 +97,7 @@ public final class InteractivePlot extends JComponent {
 		}
 		
 		public void mousePressed(MouseEvent e) {
+			requestFocusInWindow();
 			mouseHandler.mousePressed(plotScale, getMouseLocation(e.getX(), e.getY()), e);
 		}
 		
